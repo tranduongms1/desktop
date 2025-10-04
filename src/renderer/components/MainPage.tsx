@@ -475,7 +475,7 @@ class MainPage extends React.PureComponent<Props, State> {
             return sum || this.state.unreadsPerServer[key];
         }, false);
 
-        const activeServer = this.state.servers.find((srv) => srv.id === this.state.activeServerId);
+        const activeServer = this.state.servers.find((srv) => false && srv.id === this.state.activeServerId);
         const tabStatus = activeServer && this.getTabViewStatus();
         if (!tabStatus) {
             if (this.state.activeTabId) {

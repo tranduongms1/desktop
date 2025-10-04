@@ -5,8 +5,6 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import type {IntlShape} from 'react-intl';
 
-import {localeTranslations} from 'common/utils/constants';
-
 import type {SettingsDefinition} from 'types/settings';
 
 import CheckSetting from './components/CheckSetting';
@@ -15,15 +13,7 @@ import NotificationSetting from './components/NotificationSetting';
 import NumberSetting from './components/NumberSetting';
 import RadioSetting from './components/RadioSetting';
 import SelectSetting from './components/SelectSetting';
-import ServerSetting from './components/ServerSetting';
-import SpellCheckerSetting from './components/SpellCheckerSetting';
 import UpdatesSetting from './components/UpdatesSetting';
-
-const getLanguages = async (func: () => Promise<string[]>) => {
-    return (await func()).filter((language) => localeTranslations[language]).
-        map((language) => ({label: localeTranslations[language], value: language})).
-        sort((a, b) => a.label.localeCompare(b.label));
-};
 
 const definition: (intl: IntlShape) => Promise<SettingsDefinition> = async (intl: IntlShape) => {
     return {
@@ -264,98 +254,6 @@ const definition: (intl: IntlShape) => Promise<SettingsDefinition> = async (intl
                 {
                     id: 'notifications',
                     component: NotificationSetting,
-                },
-            ],
-        },
-        language: {
-            title: (
-                <FormattedMessage
-                    id='renderer.components.settingsPage.language'
-                    defaultMessage='Language'
-                />
-            ),
-            icon: 'globe',
-            settings: [
-                {
-                    id: 'appLanguage',
-                    component: SelectSetting,
-                    props: {
-                        label: (
-                            <FormattedMessage
-                                id='renderer.components.settingsPage.appLanguage'
-                                defaultMessage='App Language'
-                            />
-                        ),
-                        subLabel: (
-                            <>
-                                <FormattedMessage
-                                    id='renderer.components.settingsPage.appLanguage.description'
-                                    defaultMessage='The language that the Desktop App will use for menu items and popups. Still in beta, some languages will be missing translation strings.'
-                                />
-                                &nbsp;
-                                <FormattedMessage
-                                    id='renderer.components.settingsPage.afterRestart'
-                                    defaultMessage='Setting takes effect after restarting the app.'
-                                />
-                            </>
-                        ),
-                        placeholder: (
-                            <FormattedMessage
-                                id='renderer.components.settingsPage.appLanguage.placeholder'
-                                defaultMessage='Use system default'
-                            />
-                        ),
-                        options: await getLanguages(window.desktop.getAvailableLanguages),
-                    },
-                },
-                {
-                    id: 'useSpellChecker',
-                    component: SpellCheckerSetting,
-                    props: {
-                        heading: (
-                            <h3>
-                                <FormattedMessage
-                                    id='renderer.components.settingsPage.spellChecker'
-                                    defaultMessage='Spell Checker'
-                                />
-                            </h3>
-                        ),
-                        label: (
-                            <FormattedMessage
-                                id='renderer.components.settingsPage.checkSpelling'
-                                defaultMessage='Check spelling'
-                            />
-                        ),
-                        subLabel: (
-                            <>
-                                <FormattedMessage
-                                    id='renderer.components.settingsPage.checkSpelling.description'
-                                    defaultMessage='Highlight misspelled words in your messages based on your system language or language preference.'
-                                />
-                                &nbsp;
-                                <FormattedMessage
-                                    id='renderer.components.settingsPage.afterRestart'
-                                    defaultMessage='Setting takes effect after restarting the app.'
-                                />
-                            </>
-                        ),
-                        options: await getLanguages(window.desktop.getAvailableSpellCheckerLanguages),
-                    },
-                },
-            ],
-        },
-        servers: {
-            title: (
-                <FormattedMessage
-                    id='renderer.components.settingsPage.servers'
-                    defaultMessage='Servers'
-                />
-            ),
-            icon: 'server-variant',
-            settings: [
-                {
-                    id: 'servers',
-                    component: ServerSetting,
                 },
             ],
         },

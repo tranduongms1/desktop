@@ -23,7 +23,7 @@ export class I18nManager {
     currentLanguage: Language;
 
     constructor() {
-        this.currentLanguage = this.getLanguages().en;
+        this.currentLanguage = this.getLanguages().vi;
 
         ipcMain.handle(GET_LANGUAGE_INFORMATION, this.getCurrentLanguage);
         ipcMain.handle(GET_AVAILABLE_LANGUAGES, this.getAvailableLanguages);
