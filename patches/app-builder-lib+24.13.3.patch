@@ -30,7 +30,7 @@ index 2d5cd3c..9bf447e 100644
      <Property Id="DISABLEADVTSHORTCUTS" Value="1"/>
 +    <Property Id="REINSTALLMODE" Value="amus" />
 +    <Property Id="EXEINSTALLEREXISTS">
-+      <DirectorySearch Path="[LocalAppDataFolder]\Programs\mattermost-desktop" Depth="0">
++      <DirectorySearch Path="[LocalAppDataFolder]\Programs\egsoft-desktop" Depth="0">
 +        <FileSearch Id="SearchEXEUninstaller" Name="Uninstall ${productName}.exe" />
 +      </DirectorySearch>
 +    </Property>
@@ -42,8 +42,8 @@ index 2d5cd3c..9bf447e 100644
  
 +    <util:CloseApplication
 +      Id="closeApplication"
-+      Description="Mattermost is still running. Please ensure to manually close before continuing installation."
-+      Target="Mattermost.exe"
++      Description="EGSoft is still running. Please ensure to manually close before continuing installation."
++      Target="EGSoft.exe"
 +      RebootPrompt="no"
 +      PromptToContinue="yes"
 +    />

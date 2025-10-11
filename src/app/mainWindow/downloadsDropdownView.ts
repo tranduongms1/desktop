@@ -58,7 +58,7 @@ export class DownloadsDropdownView {
         this.view = new WebContentsView({webPreferences: {preload: getLocalPreload('internalAPI.js')}});
         this.view.setBackgroundColor('#00000000');
         performanceMonitor.registerView('DownloadsDropdownView', this.view.webContents);
-        this.view.webContents.loadURL('mattermost-desktop://renderer/downloadsDropdown.html');
+        this.view.webContents.loadURL('egsoft-desktop://renderer/downloadsDropdown.html');
         MainWindow.get()?.contentView.addChildView(this.view);
     };
 

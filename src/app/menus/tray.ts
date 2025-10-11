@@ -34,7 +34,7 @@ export function createTemplate() {
 
                 ModalManager.addModal(
                     ModalConstants.SETTINGS_MODAL,
-                    'mattermost-desktop://renderer/settings.html',
+                    'egsoft-desktop://renderer/settings.html',
                     getLocalPreload('internalAPI.js'),
                     null,
                     mainWindow,

@@ -24,7 +24,7 @@ function fixSetuid(context) {
 function getAppFileName(context) {
     switch (context.electronPlatformName) {
     case 'win32':
-        return 'Mattermost.exe';
+        return 'EGSoft.exe';
     case 'darwin':
     case 'mas':
         return 'Mattermost.app';

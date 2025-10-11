@@ -203,7 +203,7 @@ module.exports = {
     async getServerMap(app) {
         const map = {};
         await Promise.all(app.windows().
-            filter((win) => !win.url().includes('mattermost-desktop://')).
+            filter((win) => !win.url().includes('egsoft-desktop://')).
             map(async (win) => {
                 return win.evaluate(async () => {
                     if (!window.testHelper) {

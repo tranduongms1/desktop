@@ -254,7 +254,7 @@ function initializeBeforeAppReady() {
     }
 
     protocol.registerSchemesAsPrivileged([
-        {scheme: 'mattermost-desktop', privileges: {standard: true}},
+        {scheme: 'egsoft-desktop', privileges: {standard: true}},
     ]);
 }
 
@@ -293,7 +293,7 @@ function initializeInterCommunicationEventListeners() {
 }
 
 async function initializeAfterAppReady() {
-    protocol.handle('mattermost-desktop', (request: Request) => {
+    protocol.handle('egsoft-desktop', (request: Request) => {
         const url = parseURL(request.url);
         if (!url) {
             return new Response('bad', {status: 400});
@@ -341,7 +341,7 @@ async function initializeAfterAppReady() {
     const defaultSession = session.defaultSession;
     defaultSession.webRequest.onHeadersReceived((details, callback) => {
         const url = parseURL(details.url);
-        if (url?.protocol === 'mattermost-desktop:' && url?.pathname.endsWith('html')) {
+        if (url?.protocol === 'egsoft-desktop:' && url?.pathname.endsWith('html')) {
             callback({
                 responseHeaders: {
                     ...details.responseHeaders,

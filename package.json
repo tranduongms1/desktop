@@ -1,19 +1,18 @@
 {
-  "name": "mattermost-desktop",
-  "productName": "Mattermost",
+  "name": "egsoft-desktop",
+  "productName": "EGSoft",
   "version": "6.0.0-develop.1",
-  "description": "Mattermost",
+  "description": "EGSoft",
   "main": "dist/index.js",
-  "author": "Mattermost, Inc. <feedback@mattermost.com>",
-  "license": "Apache-2.0",
-  "desktopName": "Mattermost.Desktop",
-  "homepage": "https://mattermost.com",
+  "license": "MIT",
+  "desktopName": "EGSoft.Desktop",
+  "homepage": "https://egsoft.vn",
   "engines": {
     "node": ">=18.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattermost/desktop.git"
+    "url": "git://github.com/egsoft/desktop.git"
   },
   "scripts": {
     "postinstall": "patch-package && electron-builder install-app-deps",
